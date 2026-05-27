@@ -49,7 +49,7 @@ def create_dataloader_v1(txt, batch_size=4, max_length=256,
 
 tokenizer = tiktoken.get_encoding("gpt2")
 
-with open("../data/the-verdict.txt", "r", encoding="utf-8") as f:
+with open("../../data/the-verdict.txt", "r", encoding="utf-8") as f:
     raw_text = f.read()
 
 vocab_size = 50257

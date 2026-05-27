@@ -92,7 +92,6 @@ class MultiHeadAttention(nn.Module):
         keys = self.W_key(x)  # Shape: (b, num_tokens, d_out)
         queries = self.W_query(x)
         values = self.W_value(x)
-
         # We implicitly split the matrix by adding a `num_heads` dimension
         # Unroll last dim: (b, num_tokens, d_out) -> (b, num_tokens, num_heads, head_dim)
         keys = keys.view(b, num_tokens, self.num_heads, self.head_dim)
@@ -121,7 +120,9 @@ class MultiHeadAttention(nn.Module):
 
         # Combine heads, where self.d_out = self.num_heads * self.head_dim
         context_vec = context_vec.contiguous().view(b, num_tokens, self.d_out)
+        # print(context_vec)
         context_vec = self.out_proj(context_vec)  # optional projection
+        # print(context_vec)
 
         return context_vec
 
