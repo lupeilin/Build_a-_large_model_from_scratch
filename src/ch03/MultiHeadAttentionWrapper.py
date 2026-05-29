@@ -127,15 +127,18 @@ class MultiHeadAttention(nn.Module):
         return context_vec
 
 
-batch = torch.stack((inputs, inputs), dim=0)
-print(batch.shape) # 2 inputs with 6 tokens each, and each token has embedding dimension 3
-torch.manual_seed(123)
-
-batch_size, context_length, d_in = batch.shape
-d_out = 2
-mha = MultiHeadAttention(d_in, d_out, context_length, 0.0, num_heads=2)
-
-context_vecs = mha(batch)
-
-print(context_vecs)
-print("context_vecs.shape:", context_vecs.shape)
+# batch = torch.stack((inputs, inputs), dim=0)
+# print(batch.shape) # 2 inputs with 6 tokens each, and each token has embedding dimension 3
+# torch.manual_seed(123)
+#
+# batch_size, context_length, d_in = batch.shape
+# d_out = 2
+# mha = MultiHeadAttention(d_in, d_out, context_length, 0.0, num_heads=2)
+#
+# context_vecs = mha(batch)
+#
+# print(context_vecs)
+# print("context_vecs.shape:", context_vecs.shape)
+#
+# if __name__ == '__main__':
+#     print("Module loaded successfully")
